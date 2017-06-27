@@ -59,13 +59,6 @@ Do not select any webserver to configure!
 Use default server password for myphpadmin when setting up, (your server root password!)
 -----------------------------------------------------------------------------------------
 sudo apt-get --no-install-recommends install adminer
-
-Backup files in case overwritten
---------------------------------
-cp /etc/ssh/sshd_config /root
-cp /etc/rc.local /root
-cp /etc/vsftpd.conf /root
-cp /etc/apt/sources.list /root
 cd /root
 wget https://github.com/WoWzee/tor-hosting/archive/master.zip
 sudo apt-get install zip
@@ -167,21 +160,8 @@ service tor restart
 Now run all this from command line as root.
 --------------------------------------------
 Run terminal as root!
-
 sudo -i
-
-usermod -aG sasl postfix
-
-postmulti -e init
-postmulti -I postfix-clearnet -e create
-postmulti -i clearnet -e enable
-postmulti -i clearnet -p start
-
-postmap /etc/postfix/canonical /etc/postfix/sender_login_maps /etc/postfix/transport
-postmap /etc/postfix-clearnet/canonical /etc/postfix-clearnet/sasl_password /etc/postfix-clearnet/transport # only if you have a second instance
-
 sudo nano /etc/fstab
-
 append to the end of file
 
 tmpfs /tmp tmpfs defaults 0 0
@@ -251,6 +231,7 @@ mkdir /var/www/skel/data /var/www/skel/Maildir /var/www/skel/tmp
 chmod 755 /var/www/skel/data /var/www/skel/Maildir /var/www/skel/tmp /var/www/skel/www
 
 Now you can edit the postfix - mail sections to your own needs or just leave them as if you are not using mail.
+see optional steps - Read Me
 
 Reboot server and all should be working.
 
