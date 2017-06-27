@@ -28,13 +28,18 @@ sudo -i
 sudo apt-get install software-properties-common
 sudo apt-get update
 sudo apt-get upgrade
-
+sudo apt-get install nano
 sudo apt-get install apt-transport-https lsb-release ca-certificates
 sudo apt-get update
 sudo apt-get install python-software-properties software-properties-common
 sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
+Optional - Remove Apache2 to prevent any conflicts
+sudo sudo service apache2 stop
+sudo apt-get remove apache2*
+sudo apt-get autoremove
+sudo apt-get purge apache2*
 
 Install main services first
 -----------------------------
@@ -235,7 +240,13 @@ see optional steps - Read Me
 
 Reboot server and all should be working.
 
+Remember to open any ports needed for tor & tor instances web server etc.
+
 ```
+Optional-
+----------
+If you wish to create a email server on the system follow this guide. 
+https://workaround.org/ispmail/wheezy/
 
 Live demo:
 ----------
