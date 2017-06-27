@@ -30,11 +30,6 @@ sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install apt-transport-https lsb-release ca-certificates
-
-sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
-
 sudo apt-get update
 sudo apt-get install python-software-properties software-properties-common
 sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
