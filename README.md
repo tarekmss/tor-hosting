@@ -179,22 +179,6 @@ append to end of file
 SUB_GID_COUNT 1
 SUB_UID_COUNT 1
 
-Only if you overwrote it if not skip
-------------------------------------
-cp /etc/rc.local /root
-
-Restore to default if this file overwrote if not skip!
-------------------------------------------------------
-nano /etc/rc.local   
-
-overwrite the sshd_config back to defualt otherwise you
-will not be able to connect using the one in this archive.
-----------------------------------------------
-cp /root/sshd_config /etc/ssh/
-
-replace sources.list # if you overwrote if not skip
-----------------------------------------------------
-cp /root/sources.list /etc/apt/  
 
 As time syncronisation is important, you should configure ntp servers in /etc/systemd/timesyncd.conf and make them match with the entries in /etc/rc.local iptables configuration
 
@@ -207,11 +191,6 @@ for instance in default 2 3 4 5 6 7 a b c d e f g h i j k l m n o p q r s t u v 
 And to get a list of all tor user ids to add in /etc/rc.local run the following:
 ---------------------------------------------------------------------------------
 for instance in 2 3 4 5 6 7 a b c d e f g h i j k l m n o p q r s t u v w x y z; do(id "_tor-$instance") done && id debian-tor
-
-Install squirrelmail for web based mail management grab the latest squirrelmail and install it in /var/www/html/squirrelmail:
----------------------------------------------------------------------------------------------------------
-cd /var/www/html/ && svn checkout https://svn.code.sf.net/p/squirrelmail/code/trunk/squirrelmail && cd squirrelmail && ./configure
-
 
 NOW EDIT THE MAIN COMMON.PHP
 -----------------------------
